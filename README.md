@@ -12,6 +12,25 @@ It supports direct output from existing `MultiFab` data without first reading a 
 
 This approach is more stable than assembling the FE mesh directly across MPI ranks, especially when output is only performed occasionally during a simulation.
 
+## Attribution
+
+Parts of this repository are derived from existing AMReX-related open-source
+code used for FE-style post-processing/export workflows. AMReX itself is
+distributed under the BSD 3-Clause license. In accordance with the applicable
+license terms, original copyright notices, attribution statements, and license
+text should be retained where required.
+
+This repository introduces additional modifications and adaptations for a
+runtime export workflow based on existing AMReX `MultiFab` data, including:
+- direct FE export from distributed solution data,
+- a rank-0 gather-and-write strategy for MPI robustness,
+- Tecplot-compatible ASCII output,
+- optional TecIO-based binary output integration.
+
+No proprietary Tecplot or TecIO binaries are redistributed as part of this
+repository. End users are responsible for separately obtaining any required
+third-party dependencies and complying with their respective license terms.
+
 ## Features
 
 - Direct export from existing AMReX `MultiFab` data
@@ -61,22 +80,3 @@ and that the runtime loader can also find the shared library, e.g. via:
 
 ```bash
 export LD_LIBRARY_PATH=/path/to/Tecplot/bin:$LD_LIBRARY_PATH
-
-## Attribution
-
-Parts of this repository are derived from existing AMReX-related open-source
-code used for FE-style post-processing/export workflows. AMReX itself is
-distributed under the BSD 3-Clause license. In accordance with the applicable
-license terms, original copyright notices, attribution statements, and license
-text should be retained where required.
-
-This repository introduces additional modifications and adaptations for a
-runtime export workflow based on existing AMReX `MultiFab` data, including:
-- direct FE export from distributed solution data,
-- a rank-0 gather-and-write strategy for MPI robustness,
-- Tecplot-compatible ASCII output,
-- optional TecIO-based binary output integration.
-
-No proprietary Tecplot or TecIO binaries are redistributed as part of this
-repository. End users are responsible for separately obtaining any required
-third-party dependencies and complying with their respective license terms.
