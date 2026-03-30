@@ -17,7 +17,7 @@ This approach is more stable than assembling the FE mesh directly across MPI ran
 - Direct export from existing AMReX `MultiFab` data
 - Tecplot FE output
   - ASCII (`.dat`)
-  - optional TecIO binary (`.plt`)
+  - optional TecIO binary (`.dat`)
 - Rank-0 gather-and-write workflow for MPI runs
 - Works with cell-centered AMReX data
 - Supports FE mesh construction from AMR grid data
